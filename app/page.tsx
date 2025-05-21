@@ -1,20 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Chat from "./chat";
 
 export default function Home() {
-  const gifRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://tenor.com/embed.js";
-    script.async = true;
-    if (gifRef.current) {
-      gifRef.current.appendChild(script);
-    }
-  }, []);
-
   return (
     <main
       style={{
@@ -38,6 +26,7 @@ export default function Home() {
       >
         💞 Welcome to LoveBot 💞
       </h1>
+
       <p
         style={{
           fontSize: "1.2rem",
@@ -48,29 +37,23 @@ export default function Home() {
         }}
       >
         I'm your super cute, flirty, and charming{" "}
-        <strong>Mufasa The Love Bot💌✨</strong> Here to chat, flirt, and make
-        your day a little sweeter 💕 Go ahead, ask me anything — I promise to be
-        99% dumb and 100% adorable and Forever Yours 😚
+        <strong>Mufasa The Love Bot 💌✨</strong> — here to chat, flirt, and
+        make your day a little sweeter 💕 Go ahead, ask me anything — I promise
+        to be 99% dumb and 100% adorable and forever yours 😚
       </p>
 
-      {/* 🎀 Tenor GIF Embed */}
-      <div
-        ref={gifRef}
-        dangerouslySetInnerHTML={{
-          __html: `
-            <div class="tenor-gif-embed" 
-              data-postid="4026913279718984993" 
-              data-share-method="host" 
-              data-aspect-ratio="1" 
-              data-width="300px">
-              <a href="https://tenor.com/view/dudu-bubu-dudu-love-dudu-heart-dudu-gif-4026913279718984993">
-                Dudu Bubu Dudu Love Sticker
-              </a> from 
-              <a href="https://tenor.com/search/dudu+bubu-stickers">Dudu Bubu Stickers</a>
-            </div>
-          `,
+      {/* 🎀 Static Image */}
+      <img
+        src="https://i0.wp.com/bubududuworld.com/wp-content/uploads/2024/10/Bubu-loving-Dudu.png?fit=1500%2C1500&ssl=1"
+        alt="Bubu loving Dudu"
+        style={{
+          width: "300px",
+          height: "auto",
+          marginBottom: "32px",
+          borderRadius: "16px",
+          boxShadow: "0 4px 12px rgba(214, 51, 132, 0.3)",
         }}
-        style={{ marginBottom: "32px" }}
+        loading="lazy"
       />
 
       <Chat />
